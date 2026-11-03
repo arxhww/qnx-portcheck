@@ -18,7 +18,7 @@ Three levels: blockers (Linux-only API with no direct QNX symbol), warnings (dif
 
 ## Tests
 
-    python3 -m unittest discover tests
+    pip install pytest && pytest tests
 
 Validated on iperf3 (7 consistent blockers).
 
