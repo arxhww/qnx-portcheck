@@ -1,0 +1,106 @@
+{
+ "epoll_create": {
+  "use": "poll()/select() or ionotify()+MsgReceive pulses",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/poll.html"
+ },
+ "epoll_create1": {
+  "use": "poll()/select() or ionotify()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/poll.html"
+ },
+ "epoll_ctl": {
+  "use": "poll()/select() or ionotify()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/poll.html"
+ },
+ "epoll_wait": {
+  "use": "poll()/select()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/poll.html"
+ },
+ "epoll_pwait": {
+  "use": "ppoll()/select()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/poll.html"
+ },
+ "eventfd": {
+  "use": "pipe2() or pulses (MsgSendPulse)",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/pipe2.html"
+ },
+ "signalfd": {
+  "use": "sigwaitinfo() in a thread",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/s/sigwaitinfo.html"
+ },
+ "timerfd_create": {
+  "use": "timer_create() with SIGEV_PULSE",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/t/timer_create.html"
+ },
+ "timerfd_settime": {
+  "use": "timer_settime()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/t/timer_settime.html"
+ },
+ "timerfd_gettime": {
+  "use": "timer_gettime()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/t/timer_gettime.html"
+ },
+ "prctl": {
+  "use": "pthread_setname_np() / ThreadCtl()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/pthread_setname_np.html"
+ },
+ "sysinfo": {
+  "use": "sysconf() / SYSPAGE_ENTRY()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/s/sysconf.html"
+ },
+ "sched_setaffinity": {
+  "use": "ThreadCtl(_NTO_TCTL_RUNMASK,...)",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/t/threadctl.html"
+ },
+ "sched_getaffinity": {
+  "use": "ThreadCtl(_NTO_TCTL_RUNMASK_GET_AND_SET,...)",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/t/threadctl.html"
+ },
+ "pthread_setaffinity_np": {
+  "use": "ThreadCtl(_NTO_TCTL_RUNMASK,...)",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/t/threadctl.html"
+ },
+ "pthread_getaffinity_np": {
+  "use": "ThreadCtl(_NTO_TCTL_RUNMASK_GET_AND_SET,...)",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/t/threadctl.html"
+ },
+ "sendfile": {
+  "use": "read()/write() loop",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/r/read.html"
+ },
+ "splice": {
+  "use": "read()/write() loop",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/r/read.html"
+ },
+ "accept4": {
+  "use": "accept() + fcntl(FD_CLOEXEC/O_NONBLOCK)",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/f/fcntl.html"
+ },
+ "statfs": {
+  "use": "statvfs()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/s/statvfs.html"
+ },
+ "fstatfs": {
+  "use": "fstatvfs()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/s/statvfs.html"
+ },
+ "memfd_create": {
+  "use": "shm_open() / shm_create_handle()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/s/shm_open.html"
+ },
+ "getauxval": {
+  "use": "SYSPAGE_ENTRY() / sysconf()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/s/sysconf.html"
+ },
+ "kqueue": {
+  "use": "poll()/select()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/poll.html"
+ },
+ "mremap": {
+  "use": "munmap()+mmap()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/m/mmap.html"
+ },
+ "fallocate": {
+  "use": "posix_fallocate()",
+  "doc": "https://www.qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.lib_ref/topic/p/posix_fallocate.html"
+ }
+}
