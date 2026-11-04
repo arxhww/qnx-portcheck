@@ -4,6 +4,10 @@ Host-side scanner that finds Linux-only APIs in a C/C++ codebase before you port
 
 It checks source files against the public QNX 8.0 libc reference (1931 symbols) plus a curated table of known Linux-only APIs (epoll, inotify, eventfd, signalfd, timerfd, /proc, backtrace, etc.), and suggests QNX equivalents with doc links.
 
+## Tutorial
+
+New to porting? Follow the 30-minute codelab: [docs/TUTORIAL.md](docs/TUTORIAL.md) (Linux echo server with epoll/eventfd -> QNX 8.0, plus a CI check). Before/after code is in `examples/`.
+
 ## Usage
 
     python3 qnx_portcheck.py path/to/project
