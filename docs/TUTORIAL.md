@@ -137,6 +137,16 @@ jobs:
       - run: python3 .portcheck/qnx_portcheck.py src   # fails the job on blockers
 ```
 
+Shorter alternative, using the repository as a GitHub Action:
+
+```yaml
+      - uses: actions/checkout@v4
+      - uses: arxhww/qnx-portcheck@main
+        with: { path: src, fail-on-blockers: 'false' }
+      - uses: github/codeql-action/upload-sarif@v3
+        with: { sarif_file: qnx-portcheck.sarif }
+```
+
 Now a pull request that adds `epoll_wait` gets an annotation on the exact line, with the QNX replacement and the doc link.
 
 ## Step 8 (optional). Build with the QNX SDP

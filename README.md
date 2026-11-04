@@ -16,6 +16,8 @@ New to porting? Follow the 30-minute codelab: [docs/TUTORIAL.md](docs/TUTORIAL.m
 
 SARIF output loads in GitHub code scanning and VS Code.
 
+As a GitHub Action: `uses: arxhww/qnx-portcheck@main` with `path:` (writes `qnx-portcheck.sarif`). See the tutorial, step 7.
+
 ## Findings
 
 Three levels: blockers (Linux-only API with no direct QNX symbol), warnings (differs in behaviour or needs a header/library), info (supported but worth checking).

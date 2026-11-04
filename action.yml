@@ -1,0 +1,14 @@
+name: qnx-portcheck
+description: Find Linux-only APIs in C/C++ code before porting to QNX 8.0 (SARIF output for code scanning)
+branding: { icon: cpu, color: blue }
+inputs:
+  path: { description: Source directory to scan, default: . }
+  sarif: { description: SARIF output file, default: qnx-portcheck.sarif }
+  fail-on-blockers: { description: Fail the step when blockers are found, default: 'true' }
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        python3 "${{ github.action_path }}/qnx_portcheck.py" "${{ inputs.path }}" --format sarif > "${{ inputs.sarif }}" || true
+        if [ "${{ inputs.fail-on-blockers }}" = "true" ]; then python3 "${{ github.action_path }}/qnx_portcheck.py" "${{ inputs.path }}"; else python3 "${{ github.action_path }}/qnx_portcheck.py" "${{ inputs.path }}" || true; fi
